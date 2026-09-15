@@ -38,3 +38,20 @@ function getDayType(day) {
       return "Invalid Day";
   }
 }
+
+// problem 2 solution
+function validateUsername(username) {
+  const usernameLower = username.toLowerCase();
+
+  if (usernameLower.length < 4) {
+    return "Too Short";
+  }
+  if (usernameLower.includes(" ")) {
+    return "No Space Allowed";
+  }
+  if (usernameLower.includes("admin")) {
+    return "Reserved Word";
+  } else {
+    return "Available";
+  }
+}
