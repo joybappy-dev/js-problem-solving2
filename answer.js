@@ -83,3 +83,31 @@ function getCngFare(distance, isNight = false, waitingMinutes = 0) {
 
   return fare;
 }
+
+// problem 5 solution
+const getChaseVerdict = (target, scored, ballsLeft) => {
+  let verdict = "";
+
+  const runsNeeded = target - scored;
+  if (runsNeeded <= 0) {
+    return "Won";
+  }
+
+  if (ballsLeft <= 0) {
+    return "Lost";
+  }
+
+  const requiredRunRate = (runsNeeded / ballsLeft) * 6;
+
+  if (requiredRunRate <= 6) {
+    verdict = "Comfortable";
+  }
+  if (requiredRunRate > 6 && requiredRunRate <= 12) {
+    verdict = "Tough";
+  }
+  if (requiredRunRate > 12) {
+    verdict = "Almost Impossible";
+  }
+
+  return `Need ${runsNeeded} runs in ${ballsLeft} balls | ${verdict}`;
+};
